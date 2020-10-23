@@ -1,0 +1,32 @@
+server:
+  port: 9007
+
+spring:
+  application:
+    name: goods-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.10:8848
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 192.168.0.10:8080
+
+
+dubbo:
+  # 扫描包地址
+  scan:
+    base-packages: nacos.dubbo
+  # 协议
+  protocol:
+    name: dubbo
+    port: -1
+  # 注册地址
+  registry:
+    address: nacos://192.168.0.10:8848/
+
+
+  # 版本号
+service:
+  version: 1.0.0
